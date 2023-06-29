@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PizzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kampanyalar">
+          <Key>
+            <PropertyRef Name="KampanyaNo" />
+          </Key>
+          <Property Name="KampanyaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Adres" Type="varchar" MaxLength="50" />
+          <Property Name="TekKisilikFirsatlar" Type="varchar" MaxLength="50" />
+          <Property Name="İkiKisilikFirsatlar" Type="varchar" MaxLength="50" />
+          <Property Name="UcKisilikFirsatlar" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MusteriBilgi">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="varchar" MaxLength="50" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Siparisler">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Adres" Type="varchar" MaxLength="50" />
+          <Property Name="PizzaBoyu" Type="varchar" MaxLength="50" />
+          <Property Name="Icecek" Type="varchar" MaxLength="50" />
+          <Property Name="Icındekiler" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="PizzaModelStoreContainer">
+          <EntitySet Name="Kampanyalar" EntityType="Self.Kampanyalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MusteriBilgi" EntityType="Self.MusteriBilgi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparisler" EntityType="Self.Siparisler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PizzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kampanyalar">
+          <Key>
+            <PropertyRef Name="KampanyaNo" />
+          </Key>
+          <Property Name="KampanyaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TekKisilikFirsatlar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="İkiKisilikFirsatlar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UcKisilikFirsatlar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MusteriBilgi">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Siparisler">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PizzaBoyu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icecek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icındekiler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PizzaEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kampanyalars" EntityType="Self.Kampanyalar" />
+          <EntitySet Name="MusteriBilgis" EntityType="Self.MusteriBilgi" />
+          <EntitySet Name="Siparislers" EntityType="Self.Siparisler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PizzaModelStoreContainer" CdmEntityContainer="PizzaEntities3">
+          <EntitySetMapping Name="Kampanyalars">
+            <EntityTypeMapping TypeName="PizzaModel.Kampanyalar">
+              <MappingFragment StoreEntitySet="Kampanyalar">
+                <ScalarProperty Name="KampanyaNo" ColumnName="KampanyaNo" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="TekKisilikFirsatlar" ColumnName="TekKisilikFirsatlar" />
+                <ScalarProperty Name="İkiKisilikFirsatlar" ColumnName="İkiKisilikFirsatlar" />
+                <ScalarProperty Name="UcKisilikFirsatlar" ColumnName="UcKisilikFirsatlar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MusteriBilgis">
+            <EntityTypeMapping TypeName="PizzaModel.MusteriBilgi">
+              <MappingFragment StoreEntitySet="MusteriBilgi">
+                <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparislers">
+            <EntityTypeMapping TypeName="PizzaModel.Siparisler">
+              <MappingFragment StoreEntitySet="Siparisler">
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="PizzaBoyu" ColumnName="PizzaBoyu" />
+                <ScalarProperty Name="Icecek" ColumnName="Icecek" />
+                <ScalarProperty Name="Icındekiler" ColumnName="Icındekiler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
