@@ -89,7 +89,7 @@ namespace Pizza
 
         private void button8_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.Siparislers.Where(x => x.AdSoyad.Contains(textBox3.Text)).ToList();
+            dataGridView1.DataSource = db.Siparislers.Where(x => x.AdSoyad.Contains(textBox3.Text)).ToList(); 
         }
     }
 }
